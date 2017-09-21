@@ -1,0 +1,48 @@
+<h1>Teste 1</h1>
+
+<dashboard (onOrderChange)="onOrderChange($event)" (onDragStart)="onDragStart($event)" (onDragEnd)="onDragEnd($event)" (onDrag)="onDrag($event)"
+  class="dashboard" [widgetsSize]="widgetsSize" [margin]="dashboardMargin">
+  <widget [size]="[2, 1]" widgetId="line" class="handle">
+    <div class="card">
+      <div widgetHandle class="card-header">
+        Gráfico linear
+      </div>
+      <ngx-charts-line-chart [view]="view2n1" [results]="lineChartData" [legend]="true" [xAxis]="true" [yAxis]="true" [roundDomains]="true"
+        legendTitle="Legendas" [autoScale]="true"></ngx-charts-line-chart>
+    </div>
+  </widget>
+  <widget [size]="[1, 1]" widgetId="bar" class="handle">
+    <div class="card">
+      <div widgetHandle class="card-header">
+        Gráfico barras
+      </div>
+      <ngx-charts-bar-vertical [view]="view1n1" [results]="barVerticalData" [legend]="true" [xAxis]="true" [yAxis]="true" [roundDomains]="true"
+        legendTitle="Legendas"></ngx-charts-bar-vertical>
+    </div>
+  </widget>
+  <widget [size]="[2, 2]" widgetId="bar-2d" class="handle">
+    <div class="card">
+      <div widgetHandle class="card-header">
+        Gráfico barras (2 dimensões)
+      </div>
+      <ngx-charts-bar-vertical-2d [view]="view2n2" [results]="barVertical2dData" [legend]="true" [xAxis]="true" [yAxis]="true"
+        [roundDomains]="true" legendTitle="Legendas"></ngx-charts-bar-vertical-2d>
+    </div>
+  </widget>
+</dashboard>
+<hr/>
+<h1>Teste 2</h1>
+<div style="width: 100%; height: 1000px;">
+  <gridster [options]="gridsterOptions">
+
+    <gridster-item [item]="{cols: 3, rows: 4, y: 0, x: 0}">
+      <ngx-charts-bar-vertical-2d [results]="barVertical2dData" [legend]="true" [xAxis]="true" [yAxis]="true"
+        [roundDomains]="true" legendTitle="Legendas"></ngx-charts-bar-vertical-2d>
+    </gridster-item>
+    <gridster-item [item]="{cols: 4, rows: 2, y: 4, x: 0}">
+        <ngx-charts-line-chart [results]="lineChartData" [legend]="true" [xAxis]="true" [yAxis]="true" [roundDomains]="true"
+        legendTitle="Legendas" [autoScale]="true"></ngx-charts-line-chart>
+      </gridster-item>
+
+  </gridster>
+</div>
